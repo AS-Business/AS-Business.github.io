@@ -7,7 +7,7 @@
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -18,9 +18,11 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        dark: '#0B0F19',
-                        card: '#1A2235',
-                        accent: '#00E5FF' /* Modern cyan for a game-dev vibe */
+                        background: '#040d07', /* Deep dark green almost black */
+                        card: '#0a1f12',       /* Dark green for cards */
+                        accent: '#2ecc71',     /* Clean, bright neon green */
+                        accentHover: '#27ae60',
+                        borderGreen: '#1b4026' /* Subtle border color */
                     }
                 }
             }
@@ -28,132 +30,225 @@
     </script>
 
     <style>
-        body { background-color: #0B0F19; color: #E2E8F0; }
-        /* Glassmorphism effects */
-        .glass { 
-            background: rgba(26, 34, 53, 0.7); 
-            backdrop-filter: blur(12px); 
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+        /* Minimalist Dot Grid Pattern Background */
+        body { 
+            background-color: #040d07; 
+            background-image: radial-gradient(rgba(46, 204, 113, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #E2E8F0; 
         }
-        .glass-card {
-            background: rgba(26, 34, 53, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        
+        /* Clean UI Cards - No heavy shadows */
+        .clean-card {
+            background-color: #0a1f12;
+            border: 1px solid #1b4026;
+            border-radius: 0.75rem;
         }
-        .hover-card:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.15); 
-            border-color: rgba(0, 229, 255, 0.4); 
+
+        .clean-button {
+            border: 1px solid #1b4026;
+            transition: all 0.2s ease-in-out;
         }
-        .transition-all { transition: all 0.3s ease; }
+        
+        .clean-button:hover {
+            border-color: #2ecc71;
+            background-color: rgba(46, 204, 113, 0.05);
+        }
+
+        /* Ribbon for Coming Soon */
+        .ribbon-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-top-right-radius: 0.75rem;
+        }
+        .ribbon {
+            position: absolute;
+            top: 30px;
+            right: -35px;
+            width: 200px;
+            background-color: #1b4026;
+            color: #2ecc71;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            border-top: 1px solid #2ecc71;
+            border-bottom: 1px solid #2ecc71;
+            letter-spacing: 1px;
+        }
+
+        /* Geometric Graphic background for hero right side */
+        .geo-bg {
+            background-image: radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 60%);
+        }
     </style>
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold text-white tracking-wider">DEV<span class="text-accent">PORTFOLIO</span></a>
-        <div class="space-x-4 md:space-x-8 text-sm md:text-base font-semibold">
-            <a href="#portfolio" class="hover:text-accent transition-all">Assets</a>
-            <a href="#about" class="hover:text-accent transition-all">About</a>
+    <!-- Top Navigation Bar (Flat, dark green) -->
+    <nav class="w-full bg-[#06140a] border-b border-borderGreen px-8 py-5 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-3 text-xl font-bold text-white tracking-wider">
+            <i class="fab fa-unity text-accent text-2xl"></i>
+            <span>DEV PORTFOLIO</span>
+        </div>
+        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
+            <a href="#portfolio" class="px-4 py-1.5 border border-borderGreen rounded-full text-white bg-card transition-all">PROJECTS</a>
+            <a href="#about" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">ABOUT</a>
+            <a href="#portfolio" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">MY WORK</a>
+            <a href="mailto:your.email@example.com" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">CONTACT</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="pt-32 pb-20 px-6 text-center max-w-4xl mx-auto mt-10">
-        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Elevating Games with <br><span class="text-accent">Premium Assets</span>
-        </h1>
-        <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-            Hi, I'm [Your Name], a Unity Asset Developer. I build high-quality, game-ready resources to help independent developers and studios bring their worlds to life faster.
-        </p>
-        <div class="flex justify-center gap-4 flex-wrap">
-            <a href="#portfolio" class="bg-accent text-dark px-8 py-3 rounded-full font-bold hover:bg-white transition-all shadow-[0_0_15px_rgba(0,229,255,0.4)]">
-                Browse Assets
-            </a>
-            <a href="https://github.com/[YourUsername]" target="_blank" class="bg-card text-white px-8 py-3 rounded-full font-bold hover:bg-gray-700 transition-all border border-gray-600">
-                <i class="fab fa-github mr-2"></i> GitHub
-            </a>
+    <header class="pt-20 pb-16 px-8 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left text area -->
+        <div>
+            <h1 class="text-5xl font-bold text-white mb-4 tracking-tight">
+                Premium Assets
+            </h1>
+            <h2 class="text-xl text-gray-300 mb-6 font-medium">
+                Showcasing My Unity Asset Portfolio
+            </h2>
+            <p class="text-sm text-gray-400 mb-8 max-w-md leading-relaxed">
+                High-quality, game-ready resources, designed to help indie developers and studios create stunning games efficiently.
+            </p>
+            <div class="flex gap-4">
+                <a href="#portfolio" class="clean-button text-white px-6 py-2.5 rounded-full text-sm font-semibold">
+                    [View Project]
+                </a>
+                <a href="https://github.com/[YourUsername]" target="_blank" class="clean-button text-white px-6 py-2.5 rounded-full text-sm font-semibold flex items-center">
+                    <i class="fab fa-github mr-2"></i> Github
+                </a>
+            </div>
+        </div>
+        
+        <!-- Right decorative graphic area -->
+        <div class="clean-card h-64 relative overflow-hidden geo-bg flex justify-center items-center">
+            <!-- Simulated constellation / wireframe connecting dots -->
+            <svg width="100%" height="100%" class="absolute opacity-60">
+                <line x1="20%" y1="50%" x2="40%" y2="80%" stroke="#2ecc71" stroke-width="1" />
+                <line x1="40%" y1="80%" x2="70%" y2="90%" stroke="#2ecc71" stroke-width="1" />
+                <line x1="70%" y1="90%" x2="80%" y2="40%" stroke="#2ecc71" stroke-width="1" />
+                <line x1="80%" y1="40%" x2="60%" y2="20%" stroke="#2ecc71" stroke-width="1" />
+                <line x1="60%" y1="20%" x2="20%" y2="50%" stroke="#2ecc71" stroke-width="1" />
+                <line x1="80%" y1="40%" x2="90%" y2="10%" stroke="#2ecc71" stroke-width="1" />
+                
+                <circle cx="20%" cy="50%" r="4" fill="none" stroke="#2ecc71" stroke-width="2" />
+                <circle cx="40%" cy="80%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
+                <circle cx="70%" cy="90%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
+                <circle cx="80%" cy="40%" r="5" fill="#2ecc71" />
+                <circle cx="60%" cy="20%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
+                <circle cx="90%" cy="10%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
+            </svg>
         </div>
     </header>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 px-6 max-w-6xl mx-auto w-full">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-            <h2 class="text-3xl font-bold text-white">My Assets</h2>
-            
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-2 justify-center">
-                <button onclick="filterSelection('all')" class="filter-btn bg-accent text-dark px-5 py-2 rounded-full text-sm font-bold transition-all">All</button>
-                <button onclick="filterSelection('audio')" class="filter-btn bg-card text-white px-5 py-2 rounded-full text-sm font-bold transition-all border border-gray-700 hover:border-accent">Audio</button>
-                <button onclick="filterSelection('models')" class="filter-btn bg-card text-white px-5 py-2 rounded-full text-sm font-bold transition-all border border-gray-700 hover:border-accent">3D Models</button>
-                <button onclick="filterSelection('tools')" class="filter-btn bg-card text-white px-5 py-2 rounded-full text-sm font-bold transition-all border border-gray-700 hover:border-accent">Scripts</button>
-            </div>
+    <!-- Filter Section -->
+    <section class="py-8 px-8 max-w-7xl mx-auto w-full text-center">
+        <h3 class="text-sm font-bold tracking-widest text-white mb-6 uppercase">Filter Assets</h3>
+        <div class="flex flex-wrap justify-center gap-3">
+            <button onclick="filterSelection('all')" class="filter-btn bg-borderGreen text-white px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent flex items-center">
+                <span class="w-2 h-2 rounded-full bg-accent mr-2"></span> All
+            </button>
+            <button onclick="filterSelection('audio')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
+                Audio
+            </button>
+            <button onclick="filterSelection('models')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
+                3D Models
+            </button>
+            <button onclick="filterSelection('tools')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
+                Tools
+            </button>
         </div>
+    </section>
 
-        <!-- Asset Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Portfolio Grid -->
+    <section id="portfolio" class="py-6 px-8 max-w-7xl mx-auto w-full mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <!-- Asset Card 1: Sound Pack (Active) -->
-            <div class="asset-card audio glass-card rounded-xl overflow-hidden transition-all hover-card flex flex-col h-full">
-                <!-- Replace src with an actual image URL of your pack -->
-                <div class="h-48 bg-gray-800 relative">
-                    <img src="https://images.unsplash.com/photo-1614149162883-504ce4d13909?auto=format&fit=crop&q=80&w=800" alt="Sound Pack" class="w-full h-full object-cover opacity-80">
-                    <span class="absolute top-3 right-3 bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full shadow-lg">Audio</span>
+            <!-- Card 1: Sci-Fi Sound Pack (Large) -->
+            <div class="asset-card audio clean-card overflow-hidden flex flex-col col-span-1">
+                <!-- Visual Placeholder for Audio -->
+                <div class="h-48 bg-[#031008] border-b border-borderGreen relative overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent"></div>
+                    <div class="flex items-center justify-center gap-1 w-full px-8 opacity-80 z-10">
+                        <!-- Simulated audio waveform -->
+                        <div class="w-1.5 h-8 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-16 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-12 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-24 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-10 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-20 bg-accent rounded-full"></div>
+                        <div class="w-1.5 h-6 bg-accent rounded-full"></div>
+                    </div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold text-white mb-2">Ultimate Sci-Fi SFX Pack</h3>
-                    <p class="text-sm text-gray-400 mb-6 flex-grow">Over 200 high-quality, game-ready sound effects including UI blips, laser blasts, engine hums, and ambient drones. Fully mixed and mastered for Unity.</p>
-                    <a href="[Link to Unity Asset Store or Itch.io]" target="_blank" class="block text-center w-full bg-card border border-accent text-accent hover:bg-accent hover:text-dark py-2 rounded font-semibold transition-all">
-                        View on Asset Store
+                    <h3 class="text-xl font-bold text-white mb-2">Sci-Fi Sound Pack</h3>
+                    <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">200+ high-quality sounds for sci-fi games, fully mixed and mastered. Perfect for UI, weapons, and environment ambient noise.</p>
+                    <a href="#" class="block text-center w-full clean-button text-gray-300 py-2.5 rounded text-sm font-medium">
+                        [View on Asset Store]
                     </a>
                 </div>
             </div>
 
-            <!-- Asset Card 2: 3D Models (Upcoming) -->
-            <div class="asset-card models glass-card rounded-xl overflow-hidden transition-all flex flex-col h-full opacity-60">
-                <div class="h-48 bg-gray-800 relative flex items-center justify-center">
-                    <i class="fas fa-cube text-4xl text-gray-600"></i>
-                    <span class="absolute top-3 right-3 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</span>
+            <!-- Card 2: Modular Sci-Fi Corridors (Large) -->
+            <div class="asset-card models clean-card overflow-hidden flex flex-col col-span-1">
+                <!-- Visual Placeholder for Models -->
+                <div class="h-48 bg-[#031008] border-b border-borderGreen relative overflow-hidden flex items-center justify-center">
+                     <i class="fas fa-cube text-5xl text-accent/40 z-10"></i>
+                     <!-- Simple grid to simulate editor view -->
+                     <div class="absolute inset-0 opacity-10 bg-[linear-gradient(#2ecc71_1px,transparent_1px),linear-gradient(90deg,#2ecc71_1px,transparent_1px)] bg-[size:20px_20px]"></div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold text-gray-300 mb-2">Modular Sci-Fi Corridors</h3>
-                    <p class="text-sm text-gray-500 flex-grow">A low-poly modular asset pack for building endless interior space station environments. Currently in development.</p>
+                    <h3 class="text-xl font-bold text-white mb-2">Modular Sci-Fi Corridors</h3>
+                    <p class="text-xs text-gray-400 mb-6 flex-grow leading-relaxed">Modular corridors for a sci-fi game, currently in development. Includes walls, floors, doors, and piping.</p>
                 </div>
             </div>
 
-            <!-- Asset Card 3: Scripts/Tools (Upcoming) -->
-            <div class="asset-card tools glass-card rounded-xl overflow-hidden transition-all flex flex-col h-full opacity-60">
-                <div class="h-48 bg-gray-800 relative flex items-center justify-center">
-                    <i class="fas fa-code text-4xl text-gray-600"></i>
-                    <span class="absolute top-3 right-3 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</span>
+            <!-- Column 3: Stacked Cards -->
+            <div class="col-span-1 flex flex-col gap-6">
+                
+                <!-- Stacked Top: Level Design Suite -->
+                <div class="asset-card tools clean-card overflow-hidden relative p-6 flex flex-col h-1/2 min-h-[180px]">
+                    <div class="ribbon-wrapper">
+                        <div class="ribbon">COMING SOON</div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-1">Level Design Suite</h3>
+                    <p class="text-[10px] text-accent mb-4 tracking-widest uppercase font-semibold">[Asset Type]</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">[Asset Name] current project is currently in development. Full description of asset pack will be available soon.</p>
                 </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold text-gray-300 mb-2">Dynamic Footstep Controller</h3>
-                    <p class="text-sm text-gray-500 flex-grow">A plug-and-play Unity script that automatically detects terrain textures and triggers corresponding audio clips.</p>
+
+                <!-- Stacked Bottom: About Me -->
+                <div class="clean-card p-6 flex flex-col h-1/2 min-h-[180px]" id="about">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold text-white">About Me</h3>
+                        <!-- Avatar placeholder -->
+                        <div class="w-8 h-8 rounded-full bg-borderGreen flex items-center justify-center text-xs text-accent border border-accent">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed mt-2">
+                        I am showcasing my [Unity Asset Title] Portfolio, based on a clean, modern aesthetic. High-quality, game-ready resources, designed to help indie developers and studios create stunning games efficiently.
+                    </p>
                 </div>
-            </div>
 
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 bg-unityDark w-full border-t border-gray-800 mt-auto">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">About Me</h2>
-            <p class="text-gray-400 mb-8 leading-relaxed">
-                I focus on creating optimized, drag-and-drop assets that respect a developer's time and project architecture. With a strong foundation in audio design, I'm currently expanding my toolset into 3D modeling and editor scripting to provide full-suite development solutions. 
-            </p>
-            <div class="flex justify-center gap-6 text-2xl text-gray-500">
-                <a href="#" class="hover:text-accent transition-all"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-accent transition-all"><i class="fab fa-youtube"></i></a>
-                <a href="mailto:your.email@example.com" class="hover:text-accent transition-all"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-6 text-center text-sm text-gray-600 border-t border-gray-800">
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+    <footer class="mt-auto border-t border-borderGreen bg-[#06140a] py-6 px-8 flex flex-col items-center gap-4">
+        <div class="flex gap-4 text-accent">
+            <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fab fa-youtube text-lg"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fas fa-envelope text-lg"></i></a>
+        </div>
+        <p class="text-[11px] text-gray-500">Copyright &copy; 2026 [Your Name]. All rights reserved.</p>
     </footer>
 
     <!-- Filtering Logic -->
@@ -162,13 +257,22 @@
             const items = document.getElementsByClassName('asset-card');
             const buttons = document.getElementsByClassName('filter-btn');
             
-            // Update active button styling
+            // UI Update for buttons
             for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('bg-accent', 'text-dark');
-                buttons[i].classList.add('bg-card', 'text-white');
+                // Reset to default inactive style
+                buttons[i].classList.remove('bg-borderGreen', 'text-white');
+                buttons[i].classList.add('bg-card', 'text-gray-300');
+                
+                // Remove the green dot if it exists
+                const dot = buttons[i].querySelector('span');
+                if(dot) dot.remove();
+
+                // Set active style
                 if (buttons[i].getAttribute('onclick').includes(category)) {
-                    buttons[i].classList.remove('bg-card', 'text-white');
-                    buttons[i].classList.add('bg-accent', 'text-dark');
+                    buttons[i].classList.remove('bg-card', 'text-gray-300');
+                    buttons[i].classList.add('bg-borderGreen', 'text-white');
+                    // Inject green dot indicator
+                    buttons[i].insertAdjacentHTML('afterbegin', '<span class="w-2 h-2 rounded-full bg-accent mr-2"></span>');
                 }
             }
 
