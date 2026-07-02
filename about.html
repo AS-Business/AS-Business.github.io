@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Unity Asset Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        background: '#040d07',
+                        card: '#0a1f12',
+                        accent: '#2ecc71',
+                        accentHover: '#27ae60',
+                        borderGreen: '#1b4026'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            background-color: #040d07; 
+            background-image: radial-gradient(rgba(46, 204, 113, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #E2E8F0; 
+        }
+        .clean-card {
+            background-color: #0a1f12;
+            border: 1px solid #1b4026;
+            border-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    <nav class="w-full bg-[#06140a] border-b border-borderGreen px-8 py-5 flex justify-between items-center sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-3 text-xl font-bold text-white tracking-wider hover:opacity-80 transition-opacity">
+            <i class="fab fa-unity text-accent text-2xl"></i>
+            <span>DEV PORTFOLIO</span>
+        </a>
+        <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
+            <a href="index.html#portfolio" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">PROJECTS</a>
+            <a href="about.html" class="px-4 py-1.5 border border-borderGreen rounded-full text-white bg-card transition-all">ABOUT</a>
+            <a href="mailto:your.email@example.com" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="py-20 px-8 max-w-5xl mx-auto w-full flex-grow">
+        
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold text-white mb-2">Hello, I'm [Your Name].</h1>
+            <p class="text-accent tracking-widest uppercase text-sm font-semibold">Unity Developer & Technical Sound Designer</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <div class="col-span-1 space-y-6">
+                <div class="clean-card h-64 flex items-center justify-center relative overflow-hidden group">
+                    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(#2ecc71_1px,transparent_1px),linear-gradient(90deg,#2ecc71_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+                    <i class="fas fa-user-astronaut text-7xl text-accent/30 group-hover:text-accent/50 transition-colors z-10"></i>
+                </div>
+
+                <div class="clean-card p-6">
+                    <h3 class="text-white font-bold mb-4 border-b border-borderGreen pb-2">Connect</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-accent transition-colors flex items-center"><i class="fab fa-github w-6"></i> GitHub</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors flex items-center"><i class="fab fa-twitter w-6"></i> Twitter</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors flex items-center"><i class="fab fa-linkedin w-6"></i> LinkedIn</a></li>
+                        <li><a href="mailto:email@example.com" class="hover:text-accent transition-colors flex items-center"><i class="fas fa-envelope w-6"></i> Email</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2 space-y-8">
+                
+                <div class="clean-card p-8">
+                    <h2 class="text-2xl font-bold text-white mb-4">Crafting Immersive Worlds</h2>
+                    <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+                        <p>
+                            I specialize in creating highly optimized, drag-and-drop assets that respect both a developer's time and their project's architecture. My journey started in technical audio design, ensuring that every sound effect not only sounds fantastic but hooks flawlessly into game logic without bloat.
+                        </p>
+                        <p>
+                            As I noticed the gaps in resources available to indie developers, I began expanding my toolset. Today, I am building out a full suite of assets—ranging from modular 3D environments to editor scripting tools—designed specifically for Unity.
+                        </p>
+                        <p>
+                            When I build an asset, my core philosophy is <strong>plug-and-play reliability</strong>. You shouldn't have to rewrite your entire codebase to make a door open or a laser fire.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wider text-sm border-b border-borderGreen pb-2 w-max">Technical Toolkit</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">Unity 3D/2D</span>
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">C# Scripting</span>
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">FMOD / Wwise</span>
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">Sound Design</span>
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">Blender (Modeling)</span>
+                        <span class="bg-[#031008] border border-borderGreen text-gray-300 px-4 py-1.5 rounded-full text-xs font-medium">Git / Version Control</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-borderGreen bg-[#06140a] py-6 px-8 flex flex-col items-center gap-4">
+        <div class="flex gap-4 text-accent">
+            <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fab fa-youtube text-lg"></i></a>
+            <a href="#" class="hover:text-white transition-colors"><i class="fas fa-envelope text-lg"></i></a>
+        </div>
+        <p class="text-[11px] text-gray-500">Copyright &copy; 2026 [Your Name]. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

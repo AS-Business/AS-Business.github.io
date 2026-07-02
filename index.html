@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Asset Developer | Portfolio</title>
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        background: '#040d07', /* Deep dark green almost black */
-                        card: '#0a1f12',       /* Dark green for cards */
-                        accent: '#2ecc71',     /* Clean, bright neon green */
+                        background: '#040d07',
+                        card: '#0a1f12',
+                        accent: '#2ecc71',
                         accentHover: '#27ae60',
-                        borderGreen: '#1b4026' /* Subtle border color */
+                        borderGreen: '#1b4026'
                     }
                 }
             }
@@ -30,59 +26,31 @@
     </script>
 
     <style>
-        /* Minimalist Dot Grid Pattern Background */
         body { 
             background-color: #040d07; 
             background-image: radial-gradient(rgba(46, 204, 113, 0.15) 1px, transparent 1px);
             background-size: 30px 30px;
             color: #E2E8F0; 
         }
-        
-        /* Clean UI Cards - No heavy shadows */
         .clean-card {
             background-color: #0a1f12;
             border: 1px solid #1b4026;
             border-radius: 0.75rem;
         }
-
         .clean-button {
             border: 1px solid #1b4026;
             transition: all 0.2s ease-in-out;
         }
-        
         .clean-button:hover {
             border-color: #2ecc71;
             background-color: rgba(46, 204, 113, 0.05);
         }
-
-        /* Ribbon for Coming Soon */
         .ribbon-wrapper {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-            border-top-right-radius: 0.75rem;
+            position: absolute; top: 0; right: 0; width: 150px; height: 150px; overflow: hidden; border-top-right-radius: 0.75rem;
         }
         .ribbon {
-            position: absolute;
-            top: 30px;
-            right: -35px;
-            width: 200px;
-            background-color: #1b4026;
-            color: #2ecc71;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 0.75rem;
-            font-weight: bold;
-            transform: rotate(45deg);
-            border-top: 1px solid #2ecc71;
-            border-bottom: 1px solid #2ecc71;
-            letter-spacing: 1px;
+            position: absolute; top: 30px; right: -35px; width: 200px; background-color: #1b4026; color: #2ecc71; text-align: center; padding: 5px 0; font-size: 0.75rem; font-weight: bold; transform: rotate(45deg); border-top: 1px solid #2ecc71; border-bottom: 1px solid #2ecc71; letter-spacing: 1px;
         }
-
-        /* Geometric Graphic background for hero right side */
         .geo-bg {
             background-image: radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.1) 0%, transparent 60%);
         }
@@ -90,30 +58,22 @@
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen">
 
-    <!-- Top Navigation Bar (Flat, dark green) -->
     <nav class="w-full bg-[#06140a] border-b border-borderGreen px-8 py-5 flex justify-between items-center sticky top-0 z-50">
-        <div class="flex items-center gap-3 text-xl font-bold text-white tracking-wider">
+        <a href="index.html" class="flex items-center gap-3 text-xl font-bold text-white tracking-wider hover:opacity-80 transition-opacity">
             <i class="fab fa-unity text-accent text-2xl"></i>
             <span>DEV PORTFOLIO</span>
-        </div>
+        </a>
         <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-300">
-            <a href="#portfolio" class="px-4 py-1.5 border border-borderGreen rounded-full text-white bg-card transition-all">PROJECTS</a>
-            <a href="#about" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">ABOUT</a>
-            <a href="#portfolio" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">MY WORK</a>
+            <a href="index.html#portfolio" class="px-4 py-1.5 border border-borderGreen rounded-full text-white bg-card transition-all">PROJECTS</a>
+            <a href="about.html" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">ABOUT</a>
             <a href="mailto:your.email@example.com" class="px-4 py-1.5 border border-transparent hover:border-borderGreen rounded-full transition-all">CONTACT</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="pt-20 pb-16 px-8 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left text area -->
         <div>
-            <h1 class="text-5xl font-bold text-white mb-4 tracking-tight">
-                Premium Assets
-            </h1>
-            <h2 class="text-xl text-gray-300 mb-6 font-medium">
-                Showcasing My Unity Asset Portfolio
-            </h2>
+            <h1 class="text-5xl font-bold text-white mb-4 tracking-tight">Premium Assets</h1>
+            <h2 class="text-xl text-gray-300 mb-6 font-medium">Showcasing My Unity Asset Portfolio</h2>
             <p class="text-sm text-gray-400 mb-8 max-w-md leading-relaxed">
                 High-quality, game-ready resources, designed to help indie developers and studios create stunning games efficiently.
             </p>
@@ -127,9 +87,7 @@
             </div>
         </div>
         
-        <!-- Right decorative graphic area -->
         <div class="clean-card h-64 relative overflow-hidden geo-bg flex justify-center items-center">
-            <!-- Simulated constellation / wireframe connecting dots -->
             <svg width="100%" height="100%" class="absolute opacity-60">
                 <line x1="20%" y1="50%" x2="40%" y2="80%" stroke="#2ecc71" stroke-width="1" />
                 <line x1="40%" y1="80%" x2="70%" y2="90%" stroke="#2ecc71" stroke-width="1" />
@@ -137,7 +95,6 @@
                 <line x1="80%" y1="40%" x2="60%" y2="20%" stroke="#2ecc71" stroke-width="1" />
                 <line x1="60%" y1="20%" x2="20%" y2="50%" stroke="#2ecc71" stroke-width="1" />
                 <line x1="80%" y1="40%" x2="90%" y2="10%" stroke="#2ecc71" stroke-width="1" />
-                
                 <circle cx="20%" cy="50%" r="4" fill="none" stroke="#2ecc71" stroke-width="2" />
                 <circle cx="40%" cy="80%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
                 <circle cx="70%" cy="90%" r="3" fill="none" stroke="#2ecc71" stroke-width="1" />
@@ -148,36 +105,25 @@
         </div>
     </header>
 
-    <!-- Filter Section -->
     <section class="py-8 px-8 max-w-7xl mx-auto w-full text-center">
         <h3 class="text-sm font-bold tracking-widest text-white mb-6 uppercase">Filter Assets</h3>
         <div class="flex flex-wrap justify-center gap-3">
             <button onclick="filterSelection('all')" class="filter-btn bg-borderGreen text-white px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent flex items-center">
                 <span class="w-2 h-2 rounded-full bg-accent mr-2"></span> All
             </button>
-            <button onclick="filterSelection('audio')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
-                Audio
-            </button>
-            <button onclick="filterSelection('models')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
-                3D Models
-            </button>
-            <button onclick="filterSelection('tools')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">
-                Tools
-            </button>
+            <button onclick="filterSelection('audio')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">Audio</button>
+            <button onclick="filterSelection('models')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">3D Models</button>
+            <button onclick="filterSelection('tools')" class="filter-btn bg-card text-gray-300 px-6 py-2 rounded-full text-sm font-semibold transition-all border border-borderGreen hover:border-accent">Tools</button>
         </div>
     </section>
 
-    <!-- Portfolio Grid -->
-    <section id="portfolio" class="py-6 px-8 max-w-7xl mx-auto w-full mb-20">
+    <section id="portfolio" class="py-6 px-8 max-w-7xl mx-auto w-full mb-20 flex-grow">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <!-- Card 1: Sci-Fi Sound Pack (Large) -->
             <div class="asset-card audio clean-card overflow-hidden flex flex-col col-span-1">
-                <!-- Visual Placeholder for Audio -->
                 <div class="h-48 bg-[#031008] border-b border-borderGreen relative overflow-hidden flex items-center justify-center">
                     <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent"></div>
                     <div class="flex items-center justify-center gap-1 w-full px-8 opacity-80 z-10">
-                        <!-- Simulated audio waveform -->
                         <div class="w-1.5 h-8 bg-accent rounded-full"></div>
                         <div class="w-1.5 h-16 bg-accent rounded-full"></div>
                         <div class="w-1.5 h-12 bg-accent rounded-full"></div>
@@ -196,12 +142,9 @@
                 </div>
             </div>
 
-            <!-- Card 2: Modular Sci-Fi Corridors (Large) -->
             <div class="asset-card models clean-card overflow-hidden flex flex-col col-span-1">
-                <!-- Visual Placeholder for Models -->
                 <div class="h-48 bg-[#031008] border-b border-borderGreen relative overflow-hidden flex items-center justify-center">
                      <i class="fas fa-cube text-5xl text-accent/40 z-10"></i>
-                     <!-- Simple grid to simulate editor view -->
                      <div class="absolute inset-0 opacity-10 bg-[linear-gradient(#2ecc71_1px,transparent_1px),linear-gradient(90deg,#2ecc71_1px,transparent_1px)] bg-[size:20px_20px]"></div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
@@ -210,38 +153,34 @@
                 </div>
             </div>
 
-            <!-- Column 3: Stacked Cards -->
             <div class="col-span-1 flex flex-col gap-6">
-                
-                <!-- Stacked Top: Level Design Suite -->
                 <div class="asset-card tools clean-card overflow-hidden relative p-6 flex flex-col h-1/2 min-h-[180px]">
                     <div class="ribbon-wrapper">
                         <div class="ribbon">COMING SOON</div>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-1">Level Design Suite</h3>
                     <p class="text-[10px] text-accent mb-4 tracking-widest uppercase font-semibold">[Asset Type]</p>
-                    <p class="text-xs text-gray-400 leading-relaxed">[Asset Name] current project is currently in development. Full description of asset pack will be available soon.</p>
+                    <p class="text-xs text-gray-400 leading-relaxed">[Asset Name] is currently in development. Full description of asset pack will be available soon.</p>
                 </div>
 
-                <!-- Stacked Bottom: About Me -->
-                <div class="clean-card p-6 flex flex-col h-1/2 min-h-[180px]" id="about">
+                <div class="clean-card p-6 flex flex-col h-1/2 min-h-[180px]">
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-bold text-white">About Me</h3>
-                        <!-- Avatar placeholder -->
+                        <h3 class="text-lg font-bold text-white">Behind The Code</h3>
                         <div class="w-8 h-8 rounded-full bg-borderGreen flex items-center justify-center text-xs text-accent border border-accent">
                             <i class="fas fa-user"></i>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-400 leading-relaxed mt-2">
-                        I am showcasing my [Unity Asset Title] Portfolio, based on a clean, modern aesthetic. High-quality, game-ready resources, designed to help indie developers and studios create stunning games efficiently.
+                    <p class="text-xs text-gray-400 leading-relaxed mt-2 flex-grow">
+                        Creating optimal, drag-and-drop assets that respect a developer's time and architecture.
                     </p>
+                    <a href="about.html" class="text-accent hover:text-white mt-4 block text-sm border-b border-transparent hover:border-accent w-max pb-0.5 transition-all">
+                        Read full bio &rarr;
+                    </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="mt-auto border-t border-borderGreen bg-[#06140a] py-6 px-8 flex flex-col items-center gap-4">
         <div class="flex gap-4 text-accent">
             <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-lg"></i></a>
@@ -251,32 +190,24 @@
         <p class="text-[11px] text-gray-500">Copyright &copy; 2026 [Your Name]. All rights reserved.</p>
     </footer>
 
-    <!-- Filtering Logic -->
     <script>
         function filterSelection(category) {
             const items = document.getElementsByClassName('asset-card');
             const buttons = document.getElementsByClassName('filter-btn');
             
-            // UI Update for buttons
             for (let i = 0; i < buttons.length; i++) {
-                // Reset to default inactive style
                 buttons[i].classList.remove('bg-borderGreen', 'text-white');
                 buttons[i].classList.add('bg-card', 'text-gray-300');
-                
-                // Remove the green dot if it exists
                 const dot = buttons[i].querySelector('span');
                 if(dot) dot.remove();
 
-                // Set active style
                 if (buttons[i].getAttribute('onclick').includes(category)) {
                     buttons[i].classList.remove('bg-card', 'text-gray-300');
                     buttons[i].classList.add('bg-borderGreen', 'text-white');
-                    // Inject green dot indicator
                     buttons[i].insertAdjacentHTML('afterbegin', '<span class="w-2 h-2 rounded-full bg-accent mr-2"></span>');
                 }
             }
 
-            // Show/hide grid items based on class
             for (let i = 0; i < items.length; i++) {
                 if (category === 'all') {
                     items[i].style.display = 'flex';
